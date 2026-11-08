@@ -34,7 +34,7 @@ public class ConexionDatabase {
                 properties.load(new FileInputStream(new File("config.properties")));
 
                 // Lee la URL de conexión
-                String url = properties.get("URL").toString();
+                String url = properties.getProperty("URL");
 
                 // Establecer la conexión
                 connection = DriverManager.getConnection(url);
