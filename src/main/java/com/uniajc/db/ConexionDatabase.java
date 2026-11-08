@@ -33,13 +33,11 @@ public class ConexionDatabase {
                 // Cargar las propiedades desde el archivo config.properties
                 properties.load(new FileInputStream(new File("config.properties")));
 
-                // Leer los parámetros de conexión
+                // Lee la URL de conexión
                 String url = properties.get("URL").toString();
-                String user = properties.get("USERNAME").toString();
-                String password = properties.get("PASSWORD").toString();
 
                 // Establecer la conexión
-                connection = DriverManager.getConnection(url, user, password);
+                connection = DriverManager.getConnection(url);
                 System.out.println("Conexion exitosa.");
             } catch (SQLException error) {
                 System.out.println("Failed to establish connection. " + error.getMessage());
