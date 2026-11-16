@@ -5,10 +5,12 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.mockito.MockedStatic;
 
+import java.lang.reflect.Field;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.mockito.ArgumentMatchers.anyString;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.mockStatic;
@@ -37,6 +39,33 @@ class ConexionDatabaseTest {
             Connection resultado = ConexionDatabase.getConnection();
 
             assertNotNull(resultado);
+        }
+    }
+
+   @Test
+   @DisplayName("closeConnection() debe dejar la conexión nula.")
+    void closeConnectionDebeDejarLaConexionNula() throws Exception {
+        Connection conexionFalsa = mock(Connection.class);
+
+        try (MockedStatic<DriverManager> driverManager =
+                     mockStatic(DriverManager.class)) {
+
+            driverManager.when(() ->
+                            DriverManager.getConnection(anyString()))
+                    .thenReturn(conexionFalsa);
+
+            Connection conexion = ConexionDatabase.getConnection();
+
+            assertNotNull(conexion);
+
+            ConexionDatabase.closeConnection();
+
+            Field campoConnection =
+                    ConexionDatabase.class.getDeclaredField("connection");
+
+            campoConnection.setAccessible(true);
+
+            assertNull(campoConnection.get(null));
         }
     }
 }
