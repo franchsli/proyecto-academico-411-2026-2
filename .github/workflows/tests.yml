@@ -19,4 +19,4 @@ jobs:
           cache: maven
 
       - name: Run tests
-        run: sh mvnw -B test
+        run: mvn -B test
