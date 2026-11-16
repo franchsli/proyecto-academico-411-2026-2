@@ -1,2 +1,5 @@
 target/
-config.properties
+# ignora el config.properties de la carpeta padre
+/config.properties
+# permite el config.properties para las pruebas
+!src/test/resources/config.properties
