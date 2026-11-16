@@ -12,10 +12,10 @@ import java.util.List;
 import java.util.Optional;
 
 // Conexión y modelo
-import com.uniajc.config.ConexionPostgresDatabase;
+import com.uniajc.db.ConexionDatabase;
 import com.uniajc.modelo.Estudiante;
 
-public class EstudianteDao {
+public class Estudiantedao {
 
     // 1. GUARDAR UN ESTUDIANTE
     public void guardar(Estudiante estudiante) {
@@ -23,7 +23,7 @@ public class EstudianteDao {
         String sql = "INSERT INTO \"practica-mvc\".estudiantes "
                    + "(name, lastname, email) VALUES (?, ?, ?)";
 
-        try (Connection conn = ConexionPostgresDatabase.getConnection();
+        try (Connection conn = ConexionDatabase.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, estudiante.getNombre());
@@ -45,7 +45,7 @@ public class EstudianteDao {
         String sql = "SELECT id, name, lastname, email "
                    + "FROM \"practica-mvc\".estudiantes";
 
-        try (Connection conn = ConexionPostgresDatabase.getConnection();
+        try (Connection conn = ConexionDatabase.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql);
              ResultSet rs = pstmt.executeQuery()) {
 
@@ -66,7 +66,7 @@ public class EstudianteDao {
         String sql = "SELECT id, name, lastname, email "
                    + "FROM \"practica-mvc\".estudiantes WHERE id = ?";
 
-        try (Connection conn = ConexionPostgresDatabase.getConnection();
+        try (Connection conn = ConexionDatabase.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setInt(1, id);
@@ -91,7 +91,7 @@ public class EstudianteDao {
         String sql = "UPDATE \"practica-mvc\".estudiantes "
                    + "SET name = ?, lastname = ?, email = ? WHERE id = ?";
 
-        try (Connection conn = ConexionPostgresDatabase.getConnection();
+        try (Connection conn = ConexionDatabase.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setString(1, estudiante.getNombre());
@@ -115,7 +115,7 @@ public class EstudianteDao {
 
         String sql = "DELETE FROM \"practica-mvc\".estudiantes WHERE id = ?";
 
-        try (Connection conn = ConexionPostgresDatabase.getConnection();
+        try (Connection conn = ConexionDatabase.getConnection();
              PreparedStatement pstmt = conn.prepareStatement(sql)) {
 
             pstmt.setInt(1, id);
@@ -134,7 +134,7 @@ public class EstudianteDao {
     // 6. CONVERTIR LOS DATOS DE SQL EN UN OBJETO ESTUDIANTE
     private Estudiante mapearEstudiante(ResultSet rs) throws SQLException {
 
-        Estudiante estudiante = new Estudiante();
+        Estudiante estudiante = new Estudiante("", "", "@");
 
         estudiante.setId(rs.getInt("id"));
         estudiante.setNombre(rs.getString("name"));

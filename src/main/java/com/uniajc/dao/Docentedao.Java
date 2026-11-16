@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-import com.uniajc.config.ConexionPostgresDatabase;
+import com.uniajc.config.ConexionDatabase;
 import com.uniajc.modelo.Docente;
 
-public class DocenteDao {
+public class Docentedao {
