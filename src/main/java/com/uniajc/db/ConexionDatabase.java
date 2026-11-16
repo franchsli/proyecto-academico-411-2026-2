@@ -57,6 +57,7 @@ public class ConexionDatabase {
         if (connection != null) {
             try {
                 connection.close();
+                connection = null;
                 System.out.println("Connection closed successfully.");
             } catch (SQLException e) {
                 e.printStackTrace();
