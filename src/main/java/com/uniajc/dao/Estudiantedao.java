@@ -134,7 +134,7 @@ public class Estudiantedao {
     // 6. CONVERTIR LOS DATOS DE SQL EN UN OBJETO ESTUDIANTE
     private Estudiante mapearEstudiante(ResultSet rs) throws SQLException {
 
-        Estudiante estudiante = new Estudiante("", "", "@");
+        Estudiante estudiante = new Estudiante(0,"", "", "@");
 
         estudiante.setId(rs.getInt("id"));
         estudiante.setNombre(rs.getString("name"));

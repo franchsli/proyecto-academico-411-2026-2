@@ -128,7 +128,7 @@ public class Docentedao {
     // 6. MAPEAR RESULTADO SQL A OBJETO DOCENTE
     private Docente mapearDocente(ResultSet rs) throws SQLException {
 
-        Docente docente = new Docente("nombre" , "especialidad");
+        Docente docente = new Docente(0, "nombre", "especialidad");
 
         docente.setId(rs.getInt("id"));
         docente.setNombre(rs.getString("name"));

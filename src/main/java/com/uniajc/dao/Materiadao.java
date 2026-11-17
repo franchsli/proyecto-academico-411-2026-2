@@ -128,7 +128,7 @@ public class Materiadao {
     // 6. MAPEAR RESULTADO SQL A OBJETO MATERIA
     private Materia mapearMateria(ResultSet rs) throws SQLException {
 
-        Materia materia = new Materia("nombre", 0);
+        Materia materia = new Materia(0,"nombre", 0);
 
         materia.setId(rs.getInt("id"));
         materia.setNombre(rs.getString("name"));
