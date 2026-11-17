@@ -46,6 +46,7 @@ public class DocenteServicios {
                 || docente.getEspecialidad() == null || docente.getEspecialidad().trim().isEmpty()) {
             throw new IllegalArgumentException("El nombre y la especialidad son obligatorios.");
         }
+        
         if (!docenteDao.buscarPorId(docente.getId()).isPresent()) {
             throw new IllegalArgumentException("El docente no existe.");
         }
