@@ -25,20 +25,21 @@ public class ConexionDatabase {
      */
     public static Connection getConnection() {
 
-        Properties properties = new Properties();
-
         if (connection == null) {
             try {
+                String url = System.getenv("URL");
 
-                // Cargar las propiedades desde el archivo config.properties
-                properties.load(new FileInputStream(new File("config.properties")));
-
-                // Lee la URL de conexión
-                String url = properties.getProperty("URL");
-
+                if (url == null || url.isBlank()) {
+                    Properties properties = new Properties();
+                    // Cargar las propiedades desde el archivo config.properties
+                    properties.load(new FileInputStream(new File("config.properties")));
+                    // Lee la URL de conexión
+                    url = properties.getProperty("URL");
+                }
                 // Establecer la conexión
                 connection = DriverManager.getConnection(url);
                 System.out.println("Conexion exitosa.");
+
             } catch (SQLException error) {
                 System.out.println("Failed to establish connection. " + error.getMessage());
             } catch (FileNotFoundException e) {
@@ -57,6 +58,7 @@ public class ConexionDatabase {
         if (connection != null) {
             try {
                 connection.close();
+                connection = null;
                 System.out.println("Connection closed successfully.");
             } catch (SQLException e) {
                 e.printStackTrace();
