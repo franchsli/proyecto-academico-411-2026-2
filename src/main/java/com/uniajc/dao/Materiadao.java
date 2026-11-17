@@ -11,7 +11,7 @@ import java.util.Optional;
 import com.uniajc.db.ConexionDatabase;
 import com.uniajc.modelo.Materia;
 
-public class Materiadao {
+public class MateriaDao {
 
     // 1. GUARDAR MATERIA
     public void guardar(Materia materia) {
