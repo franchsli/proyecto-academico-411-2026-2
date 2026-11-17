@@ -5,11 +5,11 @@ import com.uniajc.modelo.Materia;
 import java.util.List;
 import java.util.Optional;
 
-public class MateriaServicios {
+public class MateriaServicio {
 
     private final MateriaDao materiaDao;
 
-    public MateriaServicios(MateriaDao materiaDao) {
+    public MateriaServicio(MateriaDao materiaDao) {
         this.materiaDao = materiaDao;
     }
 

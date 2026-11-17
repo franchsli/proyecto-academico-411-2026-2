@@ -7,14 +7,14 @@ import java.util.regex.Pattern;
 import com.uniajc.dao.EstudianteDao;
 import com.uniajc.modelo.Estudiante;
 
-public class EstudianteServicios {
+public class EstudianteServicio {
 
     private static final Pattern NOMBRE_PATTERN = Pattern.compile("^[A-Za-zÁÉÍÓÚáéíóúÑñ ]{3,50}$");
     private static final Pattern EMAIL_PATTERN = Pattern.compile("^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}$");
 
     private final EstudianteDao estudianteDao;
 
-    public EstudianteServicios(EstudianteDao estudiantedao) {
+    public EstudianteServicio(EstudianteDao estudiantedao) {
         this.estudianteDao = estudiantedao;
     }
 

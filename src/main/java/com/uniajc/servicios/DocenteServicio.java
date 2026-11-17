@@ -5,11 +5,11 @@ import com.uniajc.modelo.Docente;
 import java.util.List;
 import java.util.Optional;
 
-public class DocenteServicios {
+public class DocenteServicio {
 
     private final DocenteDao docenteDao;
 
-    public DocenteServicios(DocenteDao docenteDao) {
+    public DocenteServicio(DocenteDao docenteDao) {
         this.docenteDao = docenteDao;
     }
 

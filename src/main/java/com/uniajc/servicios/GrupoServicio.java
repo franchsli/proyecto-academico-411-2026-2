@@ -5,11 +5,11 @@ import com.uniajc.modelo.Grupo;
 import java.util.List;
 import java.util.Optional;
 
-public class GrupoServicios {
+public class GrupoServicio {
 
     private final GrupoDao grupoDao;
 
-    public GrupoServicios(GrupoDao grupoDao) {
+    public GrupoServicio(GrupoDao grupoDao) {
         this.grupoDao = grupoDao;
     }
 
