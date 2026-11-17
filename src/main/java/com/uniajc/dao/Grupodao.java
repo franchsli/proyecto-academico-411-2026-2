@@ -11,7 +11,7 @@ import java.util.Optional;
 import com.uniajc.db.ConexionDatabase;
 import com.uniajc.modelo.Grupo;
 
-public class GrupoDao {
+public class Grupodao {
 
     // 1. GUARDAR GRUPO
     public void guardar(Grupo grupo) {

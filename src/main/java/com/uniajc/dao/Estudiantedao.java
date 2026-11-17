@@ -15,7 +15,7 @@ import java.util.Optional;
 import com.uniajc.db.ConexionDatabase;
 import com.uniajc.modelo.Estudiante;
 
-public class EstudianteDao {
+public class Estudiantedao {
 
     // 1. GUARDAR UN ESTUDIANTE
     public void guardar(Estudiante estudiante) {
