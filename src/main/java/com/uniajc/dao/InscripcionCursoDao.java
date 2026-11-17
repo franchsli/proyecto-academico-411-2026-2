@@ -65,7 +65,7 @@ public class InscripcionCursoDao {
              ResultSet rs = pstmt.executeQuery()) {
 
             while (rs.next()) {
-                lista.add(mapearInscripcion(rs));
+                lista.add(mapearInscripcionCurso(rs));
             }
 
         } catch (SQLException e) {
@@ -89,7 +89,7 @@ public class InscripcionCursoDao {
             try (ResultSet rs = pstmt.executeQuery()) {
 
                 if (rs.next()) {
-                    return Optional.of(mapearInscripcion(rs));
+                    return Optional.of(mapearInscripcionCurso(rs));
                 }
             }
 
@@ -149,7 +149,7 @@ public class InscripcionCursoDao {
     }
 
     // 6. MAPEAR RESULTADO SQL A OBJETO INSCRIPCION
-    private InscripcionCursoDao mapearInscripcion(ResultSet rs) throws SQLException {
+    private InscripcionCursoDao mapearInscripcionCurso(ResultSet rs) throws SQLException {
 
         InscripcionCursoDao inscripcion = new InscripcionCursoDao();
 

@@ -1,5 +1,5 @@
 package com.uniajc.servicios;
 
-public class Estudianteservicios {
+public class EstudianteServicios {
     
 }
