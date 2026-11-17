@@ -19,4 +19,6 @@ jobs:
           cache: maven
 
       - name: Run tests
+        env: 
+          URL: jdbc:postgresql://localhost:5432/test_db
         run: mvn -B test
