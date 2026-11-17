@@ -5,6 +5,7 @@ import java.util.Scanner;
 public class VistaPrincipal {
     private Scanner scanner = new Scanner(System.in);
     private VistaEstudiante vistaEstudiante = new VistaEstudiante();
+    private VistaDocente vistaDocente = new VistaDocente();
 
     public void mostrarMenuPrincipal() {
         int opcion = 0;
@@ -13,7 +14,7 @@ public class VistaPrincipal {
             System.out.println("   SISTEMA DE GESTIÓN ACADÉMICA - UNIAJC");
             System.out.println("========================================");
             System.out.println("1. Gestión de Estudiantes");
-            System.out.println("2. Gestión de Docentes (Próximamente)");
+            System.out.println("2. Gestión de Docentes");
             System.out.println("3. Gestión de Materias (Próximamente)");
             System.out.println("4. Gestión de Grupos (Próximamente)");
             System.out.println("5. Inscripciones y Notas (Próximamente)");
@@ -25,11 +26,10 @@ public class VistaPrincipal {
 
             switch (opcion) {
                 case 1:
-                    // Llama al menú de estudiantes que creamos antes
                     vistaEstudiante.mostrarMenuEstudiantes();
                     break;
                 case 2:
-                    System.out.println("\n[En desarrollo] Módulo de Docentes.");
+                    vistaDocente.mostrarMenuDocentes();
                     break;
                 case 3:
                     System.out.println("\n[En desarrollo] Módulo de Materias.");
