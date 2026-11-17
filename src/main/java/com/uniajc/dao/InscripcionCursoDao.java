@@ -11,7 +11,7 @@ import java.util.Optional;
 
 import com.uniajc.db.ConexionDatabase;
 
-public class Inscripciondao {
+public class InscripcionCursoDao {
 
     private int id;
     private int idEstudiante;
@@ -19,10 +19,10 @@ public class Inscripciondao {
     private BigDecimal notaFinal;
     private String estado;
 
-    public Inscripciondao() {
+    public InscripcionCursoDao() {
     }
 
-    public Inscripciondao(int id, int idEstudiante, int idGrupo, BigDecimal notaFinal, String estado) {
+    public InscripcionCursoDao(int id, int idEstudiante, int idGrupo, BigDecimal notaFinal, String estado) {
         this.id = id;
         this.idEstudiante = idEstudiante;
         this.idGrupo = idGrupo;
@@ -31,7 +31,7 @@ public class Inscripciondao {
     }
 
     // 1. GUARDAR INSCRIPCION
-    public void guardar(Inscripciondao inscripcion) {
+    public void guardar(InscripcionCursoDao inscripcion) {
 
         String sql = "INSERT INTO \"practica-mvc\".inscripciones "
                    + "(id_estudiante, id_grupo, final_grade, status) "
@@ -53,9 +53,9 @@ public class Inscripciondao {
     }
 
     // 2. OBTENER TODAS LAS INSCRIPCIONES
-    public List<Inscripciondao> obtenerTodos() {
+    public List<InscripcionCursoDao> obtenerTodos() {
 
-        List<Inscripciondao> lista = new ArrayList<>();
+        List<InscripcionCursoDao> lista = new ArrayList<>();
 
         String sql = "SELECT id, id_estudiante, id_grupo, final_grade, status "
                    + "FROM \"practica-mvc\".inscripciones";
@@ -76,7 +76,7 @@ public class Inscripciondao {
     }
 
     // 3. BUSCAR INSCRIPCION POR ID
-    public Optional<Inscripciondao> buscarPorId(int id) {
+    public Optional<InscripcionCursoDao> buscarPorId(int id) {
 
         String sql = "SELECT id, id_estudiante, id_grupo, final_grade, status "
                    + "FROM \"practica-mvc\".inscripciones WHERE id = ?";
@@ -101,7 +101,7 @@ public class Inscripciondao {
     }
 
     // 4. ACTUALIZAR INSCRIPCION
-    public void actualizar(Inscripciondao inscripcion) {
+    public void actualizar(InscripcionCursoDao inscripcion) {
 
         String sql = "UPDATE \"practica-mvc\".inscripciones "
                    + "SET id_estudiante = ?, id_grupo = ?, "
@@ -149,9 +149,9 @@ public class Inscripciondao {
     }
 
     // 6. MAPEAR RESULTADO SQL A OBJETO INSCRIPCION
-    private Inscripciondao mapearInscripcion(ResultSet rs) throws SQLException {
+    private InscripcionCursoDao mapearInscripcion(ResultSet rs) throws SQLException {
 
-        Inscripciondao inscripcion = new Inscripciondao();
+        InscripcionCursoDao inscripcion = new InscripcionCursoDao();
 
         inscripcion.setId(rs.getInt("id"));
         inscripcion.setIdEstudiante(rs.getInt("id_estudiante"));
