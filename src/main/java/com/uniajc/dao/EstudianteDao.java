@@ -15,7 +15,7 @@ import java.util.Optional;
 import com.uniajc.db.ConexionDatabase;
 import com.uniajc.modelo.Estudiante;
 
-public class Estudiantedao {
+public class EstudianteDao {
 
     // 1. GUARDAR UN ESTUDIANTE
     public void guardar(Estudiante estudiante) {
@@ -134,7 +134,7 @@ public class Estudiantedao {
     // 6. CONVERTIR LOS DATOS DE SQL EN UN OBJETO ESTUDIANTE
     private Estudiante mapearEstudiante(ResultSet rs) throws SQLException {
 
-        Estudiante estudiante = new Estudiante("", "", "@");
+        Estudiante estudiante = new Estudiante(0,"", "", "@");
 
         estudiante.setId(rs.getInt("id"));
         estudiante.setNombre(rs.getString("name"));
