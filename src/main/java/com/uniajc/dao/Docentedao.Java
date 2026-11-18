@@ -91,7 +91,7 @@ public class DocenteDao {
 
             pstmt.setString(1, docente.getNombre());
             pstmt.setString(2, docente.getEspecialidad());
-            pstmt.setInt(4, docente.getId());
+            pstmt.setInt(3, docente.getId());
 
             int filas = pstmt.executeUpdate();
 
